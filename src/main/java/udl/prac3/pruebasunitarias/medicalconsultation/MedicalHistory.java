@@ -11,6 +11,8 @@ public class MedicalHistory {// A class that represents a medical history
     private int membShipNumb; // the membership number of the family doctor
     private String history; // the diverse annotations in the patient’s HCE
 
+    /*
+
     public MedicalHistory (HealthCardID cip, int memberShipNum) { . . . }
 throws IncorrectParametersException;
 
@@ -20,4 +22,6 @@ throws IncorrectParametersException;
 
     public void setNewDoctor (int mshN) // Modifies the family doctor for patient
         // the getters
+
+     */
 }

@@ -1,6 +1,7 @@
 package udl.prac3.pruebasunitarias.medicalconsultation;
 
 public class ConsultationTerminal {
+    /*
  ??? // Class members
          ??? // The constructor/s
 
@@ -52,4 +53,6 @@ public class ConsultationTerminal {
 
     private void setPrescDateAndEndDate(Date date) { . . . };
     (. . .) // Setter methods for injecting dependences
+
+     */
 }

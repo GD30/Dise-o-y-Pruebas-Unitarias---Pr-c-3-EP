@@ -1,12 +1,11 @@
 package udl.prac3.pruebasunitarias.services;
 
-import udl.prac3.pruebasunitarias.data.HealthCardID;
-
 /**
  * External services for managing and storing ePrescriptions from population and IA support
  */
 
 public interface HealthNationalService {
+    /*
     MedicalHistory getMedicalHistory (HealthCardID cip)
             throws ConnectException, HealthCardIDException;
 
@@ -22,6 +21,8 @@ public interface HealthNationalService {
     // Internal operation
     MedicalPrescription generateTreatmCodeAndRegister(MedicalPrescription ePresc)
             throws ConnectException;
+
+     */
 }
 
 

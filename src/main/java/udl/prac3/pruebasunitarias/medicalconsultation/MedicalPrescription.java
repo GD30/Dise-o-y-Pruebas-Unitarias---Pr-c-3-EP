@@ -12,9 +12,9 @@ public class MedicalPrescription {// A class that represents medical prescriptio
     private Date prescDate; // the current date
     private Date endDate; // the date when the new treatment ends
     private DigitalSignature eSign; // the eSignature of the doctor
-
+/*
     // Its components, that is, the set of medical prescription lines
-    public MedicalPrescription (. . .) { . . . } // Makes some inicialization
+    public MedicalPrescription () { throw new RuntimeException("Not Implemented yet"); } // Makes some inicialization
 
     public void addLine(ProductID prodID, String[] instruc)
             throws ProductAlreadyInPrescriptionException,
@@ -26,5 +26,7 @@ public class MedicalPrescription {// A class that represents medical prescriptio
     public void removeLine(ProductID prodID)
             throws ProductNotInPrescriptionException { . . . }
     // the getters and setters for some of the class members
+
+ */
 }
 
