@@ -1,6 +1,9 @@
 package udl.prac3.pruebasunitarias.data;
 import udl.prac3.pruebasunitarias.data.exceptions.*;
 
+import java.util.*;
+import java.util.concurrent.*;
+
 /**
  * Electronic prescription code identifier.
  * Consists of 16 alphanumeric characters.
@@ -9,24 +12,34 @@ import udl.prac3.pruebasunitarias.data.exceptions.*;
  */
 final public class ePrescripCode {
     private final String code;
+    private static final Set<String> existingCodes = ConcurrentHashMap.newKeySet();
 
     /**
      * Creates a new ePrescripCode
      * @param code The electronic prescription code (must be 16 alphanumeric characters)
      * @throws ePrescripCodeException if code is null or incorrectly formatted
      */
+
+    // Constructor normal: bloquea duplicados
     public ePrescripCode(String code) throws ePrescripCodeException {
-        // Check if code is null
+        this(code, false);
+    }
+
+    // Constructor especial para tests
+    ePrescripCode(String code, boolean skipRegistry) throws ePrescripCodeException {
         if (code == null) {
             throw new ePrescripCodeException("ePrescription code cannot be null");
         }
-
-        // Must be exactly 16 alphanumeric characters
         if (!code.matches("^[A-Za-z0-9]{16}$")) {
             throw new ePrescripCodeException("ePrescription code must be exactly 16 alphanumeric characters");
         }
-
         this.code = code;
+
+        if (!skipRegistry) {
+            if (!existingCodes.add(code)) {
+                throw new ePrescripCodeException("ePrescription code already exists");
+            }
+        }
     }
 
     /**

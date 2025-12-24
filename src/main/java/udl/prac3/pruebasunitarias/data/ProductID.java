@@ -1,6 +1,9 @@
 package udl.prac3.pruebasunitarias.data;
 import udl.prac3.pruebasunitarias.data.exceptions.*;
 
+import java.util.*;
+import java.util.concurrent.*;
+
 /**
  * Universal Product Code (UPC) identifier for medicines.
  * Standard UPC codes consist of 12 digits.
@@ -9,24 +12,33 @@ import udl.prac3.pruebasunitarias.data.exceptions.*;
  */
 final public class ProductID {
     private final String code;
+    private static final Set<String> existingCodes = ConcurrentHashMap.newKeySet();
 
     /**
      * Creates a new ProductID
      * @param code The product UPC code (must be 12 digits)
      * @throws ProductIDException if code is null or incorrectly formatted
      */
+    // Constructor normal: bloquea duplicados
     public ProductID(String code) throws ProductIDException {
-        // Check if code is null
+        this(code, false);
+    }
+
+    // Constructor especial para tests
+    ProductID(String code, boolean skipRegistry) throws ProductIDException {
         if (code == null) {
             throw new ProductIDException("Product code cannot be null");
         }
-
-        // UPC codes must be exactly 12 digits
         if (!code.matches("^[0-9]{12}$")) {
             throw new ProductIDException("Product code must be exactly 12 digits");
         }
-
         this.code = code;
+
+        if (!skipRegistry) {
+            if (!existingCodes.add(code)) {
+                throw new ProductIDException("Product code already exists");
+            }
+        }
     }
 
     /**
