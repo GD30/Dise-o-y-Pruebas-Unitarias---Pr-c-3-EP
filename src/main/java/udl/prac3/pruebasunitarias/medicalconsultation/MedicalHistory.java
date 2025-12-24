@@ -1,5 +1,7 @@
 package udl.prac3.pruebasunitarias.medicalconsultation;
 
+import udl.prac3.pruebasunitarias.data.HealthCardID;
+
 /**
  * Package for the classes involved in the use case Supervise treatment
  */

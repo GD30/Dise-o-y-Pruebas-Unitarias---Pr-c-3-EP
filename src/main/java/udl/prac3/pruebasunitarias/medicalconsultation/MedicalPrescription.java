@@ -1,5 +1,9 @@
 package udl.prac3.pruebasunitarias.medicalconsultation;
 
+import udl.prac3.pruebasunitarias.data.*;
+
+import java.util.Date;
+
 public class MedicalPrescription {// A class that represents medical prescription
     private HealthCardID cip; // the healthcard ID of the patient
     private int membShipNumb; // the membership number of the family doctor
