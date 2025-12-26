@@ -11,9 +11,7 @@ public class ConsultationTerminal {
 
     private HealthNationalService hns;
     private DecisionMakingAI decisionAI;
-
-    /* ===== State ===== */
-
+    
     private MedicalHistory medicalHistory;
     private MedicalPrescription medicalPrescription;
 
@@ -35,8 +33,6 @@ public class ConsultationTerminal {
     public void setDecisionMakingAI(DecisionMakingAI ai) {
         this.decisionAI = ai;
     }
-
-    /* ===== Input events ===== */
 
     public void initRevision(HealthCardID cip, String illness)
             throws ConnectException, HealthCardIDException,
