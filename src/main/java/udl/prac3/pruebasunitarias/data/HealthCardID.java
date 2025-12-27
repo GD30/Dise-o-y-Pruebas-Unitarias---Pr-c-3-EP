@@ -35,6 +35,14 @@ final public class HealthCardID {
         return personalID;
     }
 
+    /**
+     * Clears the registry of existing IDs.
+     * Should only be used in tests.
+     */
+    public static void clearRegistry() {
+        existingIDs.clear();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

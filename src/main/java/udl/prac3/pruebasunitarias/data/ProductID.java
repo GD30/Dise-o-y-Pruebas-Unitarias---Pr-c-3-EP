@@ -32,6 +32,14 @@ final public class ProductID {
         return code;
     }
 
+    /**
+     * Clears the registry of existing Codes.
+     * Should only be used in tests.
+     */
+    public static void clearRegistry() {
+        existingCodes.clear();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

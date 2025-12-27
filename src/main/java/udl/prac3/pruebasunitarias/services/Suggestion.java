@@ -15,12 +15,14 @@ public class Suggestion {
     private String[] guidelines;
 
     public Suggestion(SuggestionType type, ProductID productID, String[] guidelines) {
+        if (type == null || productID == null) throw new IllegalArgumentException("Suggestion type and productID cannot be null");
         this.type = type;
         this.productID = productID;
         this.guidelines = guidelines;
     }
 
     public Suggestion(ProductID productID) {
+        if (productID == null) throw new IllegalArgumentException("ProductID cannot be null");
         this.type = SuggestionType.ELIMINATE;
         this.productID = productID;
         this.guidelines = null;
