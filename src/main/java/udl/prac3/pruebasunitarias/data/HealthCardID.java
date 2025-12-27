@@ -7,8 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 final public class HealthCardID {
 
     private final String personalID;
-    //Estructura usada para bloquear identificadores duplicados
-    // No pueden haber 2 identificadores identicos
     private static final Set<String> existingIDs = ConcurrentHashMap.newKeySet();
 
     // Constructor normal: bloquea IDs duplicados

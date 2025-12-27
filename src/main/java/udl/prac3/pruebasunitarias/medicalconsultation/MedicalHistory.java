@@ -1,27 +1,52 @@
 package udl.prac3.pruebasunitarias.medicalconsultation;
 
 import udl.prac3.pruebasunitarias.data.HealthCardID;
+import udl.prac3.pruebasunitarias.medicalconsultation.exceptions.IncorrectParametersException;
 
-/**
- * Package for the classes involved in the use case Supervise treatment
- */
-public class MedicalHistory {// A class that represents a medical history
+public class MedicalHistory {
+    private HealthCardID cip;
+    private int membShipNumb;
+    private String history;
 
-    private HealthCardID cip; // the CIP of the patient
-    private int membShipNumb; // the membership number of the family doctor
-    private String history; // the diverse annotations in the patient’s HCE
+    public MedicalHistory(HealthCardID cip, int memberShipNum)
+            throws IncorrectParametersException {
 
-    /*
+        if (cip == null || memberShipNum <= 0) {
+            throw new IncorrectParametersException("CIP cannot be null and membership number must be positive");
+        }
 
-    public MedicalHistory (HealthCardID cip, int memberShipNum) { . . . }
-throws IncorrectParametersException;
+        this.cip = cip;
+        this.membShipNumb = memberShipNum;
+        this.history = "";
+    }
 
-    // Makes its inicialization
-    public void addMedicalHistoryAnnotations (String annot)
-    // Adds new annotations to the patient history
+    public void addMedicalHistoryAnnotations(String annot) {
+        if (annot == null || annot.isBlank()) {
+            return;
+        }
 
-    public void setNewDoctor (int mshN) // Modifies the family doctor for patient
-        // the getters
+        if (!history.isEmpty()) {
+            history += System.lineSeparator();
+        }
+        history += annot;
+    }
 
-     */
+    public void setNewDoctor(int mshN) throws IncorrectParametersException {
+        if (mshN <= 0) {
+            throw new IncorrectParametersException("Membership number must be positive");
+        }
+        this.membShipNumb = mshN;
+    }
+
+    public HealthCardID getCip() {
+        return cip;
+    }
+
+    public int getMembShipNumb() {
+        return membShipNumb;
+    }
+
+    public String getHistory() {
+        return history;
+    }
 }

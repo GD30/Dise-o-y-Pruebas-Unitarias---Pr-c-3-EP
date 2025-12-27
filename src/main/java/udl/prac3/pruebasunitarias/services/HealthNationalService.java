@@ -1,28 +1,30 @@
 package udl.prac3.pruebasunitarias.services;
 
-/**
- * External services for managing and storing ePrescriptions from population and IA support
- */
+import udl.prac3.pruebasunitarias.data.HealthCardID;
+import udl.prac3.pruebasunitarias.medicalconsultation.MedicalHistory;
+import udl.prac3.pruebasunitarias.medicalconsultation.MedicalPrescription;
+import udl.prac3.pruebasunitarias.data.exceptions.HealthCardIDException;
+import udl.prac3.pruebasunitarias.services.exceptions.*;
+
+import java.net.ConnectException;
 
 public interface HealthNationalService {
-    /*
-    MedicalHistory getMedicalHistory (HealthCardID cip)
+
+    MedicalHistory getMedicalHistory(HealthCardID cip)
             throws ConnectException, HealthCardIDException;
 
-    MedicalPrescription5 getMedicalPrescription(HealthCardID cip, String illness)
+    MedicalPrescription getMedicalPrescription(HealthCardID cip, String illness)
             throws ConnectException, HealthCardIDException,
             AnyCurrentPrescriptionException;
 
-    MedicalPrescription6 sendHistoryAndPrescription(HealthCardID cip,
-                                                    History hce, String illness, MedicalPrescription mPresc)
+    MedicalPrescription sendHistoryAndPrescription(HealthCardID cip,
+                                                   MedicalHistory hce,
+                                                   String illness,
+                                                   MedicalPrescription mPresc)
             throws ConnectException, HealthCardIDException,
-            AnyCurrentPrescriptionException, NotCompletedMedicalPrescription;
+            AnyCurrentPrescriptionException,
+            NotCompletedMedicalPrescription;
 
-    // Internal operation
     MedicalPrescription generateTreatmCodeAndRegister(MedicalPrescription ePresc)
             throws ConnectException;
-
-     */
 }
-
-
