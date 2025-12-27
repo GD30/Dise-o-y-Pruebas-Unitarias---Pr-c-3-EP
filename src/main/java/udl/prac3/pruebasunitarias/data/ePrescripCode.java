@@ -8,12 +8,9 @@ final public class ePrescripCode {
     private final String code;
 
     ePrescripCode(String code) throws ePrescripCodeException {
-        if (code == null) {
-            throw new ePrescripCodeException("ePrescription code cannot be null");
-        }
-        if (!code.matches("^[A-Za-z0-9]{16}$")) {
-            throw new ePrescripCodeException("ePrescription code must be exactly 16 alphanumeric characters");
-        }
+        if (code == null) throw new ePrescripCodeException("ePrescription code cannot be null");
+        else if (!code.matches("^[A-Za-z0-9]{16}$")) throw new ePrescripCodeException("ePrescription code must be exactly 16 alphanumeric characters");
+
         this.code = code;
     }
 

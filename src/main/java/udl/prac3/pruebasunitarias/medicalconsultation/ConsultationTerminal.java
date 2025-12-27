@@ -62,9 +62,7 @@ public class ConsultationTerminal {
             throws ConnectException, HealthCardIDException,
             AnyCurrentPrescriptionException, ProceduralException {
 
-        if (hns == null) {
-            throw new ProceduralException("HealthNationalService not set");
-        }
+        if (hns == null) throw new ProceduralException("HealthNationalService not set");
 
         requireState(ConsultationState.INIT);
 
@@ -83,7 +81,7 @@ public class ConsultationTerminal {
     public void enterMedicalAssessmentInHistory(String assess)
             throws ProceduralException {
 
-        checkRevisionInitialized();
+        requireState(ConsultationState.INIT);
         medicalHistory.addMedicalHistoryAnnotations(assess);
     }
 
@@ -141,9 +139,7 @@ public class ConsultationTerminal {
         requireState(ConsultationState.PRESCRIPTION_EDITING);
 
         Date now = new Date();
-        if (date == null || !date.after(now)) {
-            throw new IncorrectEndingDateException("Ending date must be in the future");
-        }
+        if (date == null || !date.after(now)) throw new IncorrectEndingDateException("Ending date must be in the future");
 
         medicalPrescription.setPrescDate(now);
         medicalPrescription.setEndDate(date);
@@ -188,9 +184,7 @@ public class ConsultationTerminal {
             NotCompletedMedicalPrescription,
             ProceduralException {
 
-        if (hns == null) {
-            throw new ProceduralException("HealthNationalService not set");
-        }
+        if (hns == null) throw new ProceduralException("HealthNationalService not set");
 
         requireState(ConsultationState.SIGNED);
 
@@ -203,7 +197,7 @@ public class ConsultationTerminal {
     }
 
     /**
-     * Prints the medical prescription (not implemented)
+     * Prints the medical prescription
      */
     public void printMedicalPrescrip() {
         throw new UnsupportedOperationException("Not implemented");
@@ -217,11 +211,9 @@ public class ConsultationTerminal {
     public void callDecisionMakingAI()
             throws AIException, ProceduralException {
 
-        checkRevisionInitialized();
+        requireState(ConsultationState.INIT);
 
-        if (decisionAI == null) {
-            throw new ProceduralException("DecisionMakingAI not set");
-        }
+        if (decisionAI == null) throw new ProceduralException("DecisionMakingAI not set");
 
         decisionAI.initDecisionMakingAI();
     }
@@ -232,11 +224,9 @@ public class ConsultationTerminal {
     public void askAIForSuggest(String prompt)
             throws BadPromptException, ProceduralException {
 
-        checkRevisionInitialized();
+        requireState(ConsultationState.INIT);
 
-        if (decisionAI == null) {
-            throw new ProceduralException("DecisionMakingAI not set");
-        }
+        if (decisionAI == null) throw new ProceduralException("DecisionMakingAI not set");
 
         aiAnswer = decisionAI.getSuggestions(prompt);
     }
@@ -247,13 +237,8 @@ public class ConsultationTerminal {
     public void extractGuidelinesFromSugg()
             throws ProceduralException {
 
-        if (aiAnswer == null) {
-            throw new ProceduralException("No AI answer available to extract guidelines from");
-        }
-
-        if (decisionAI == null) {
-            throw new ProceduralException("DecisionMakingAI not set");
-        }
+        if (aiAnswer == null) throw new ProceduralException("No AI answer available to extract guidelines from");
+        else if (decisionAI == null) throw new ProceduralException("DecisionMakingAI not set");
 
         suggestions = decisionAI.parseSuggest(aiAnswer);
     }
@@ -280,25 +265,10 @@ public class ConsultationTerminal {
         return state;
     }
 
-    // ========== Private validation methods ==========
-
-    /**
-     * Checks if revision has been initialized (any state except INIT)
-     */
-    private void checkRevisionInitialized() throws ProceduralException {
-        if (state == ConsultationState.INIT) {
-            throw new ProceduralException("Revision must be initialized first");
-        }
-    }
-
     /**
      * Requires the consultation to be in a specific state
      */
     private void requireState(ConsultationState expected) throws ProceduralException {
-        if (state != expected) {
-            throw new ProceduralException(
-                    "Invalid state. Expected: " + expected + ", current: " + state
-            );
-        }
+        if (state != expected) throw new ProceduralException("Invalid state. Expected: " + expected + ", current: " + state);
     }
 }

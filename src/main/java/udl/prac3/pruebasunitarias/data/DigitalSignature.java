@@ -7,12 +7,9 @@ final public class DigitalSignature {
     private final byte[] signature;
 
     public DigitalSignature(byte[] signature) throws DigitalSignatureException {
-        if (signature == null) {
-            throw new DigitalSignatureException("Digital signature cannot be null");
-        }
-        if (signature.length == 0) {
-            throw new DigitalSignatureException("Digital signature cannot be empty");
-        }
+        if (signature == null) throw new DigitalSignatureException("Digital signature cannot be null");
+        else if (signature.length == 0) throw new DigitalSignatureException("Digital signature cannot be empty");
+
         this.signature = Arrays.copyOf(signature, signature.length);
     }
 

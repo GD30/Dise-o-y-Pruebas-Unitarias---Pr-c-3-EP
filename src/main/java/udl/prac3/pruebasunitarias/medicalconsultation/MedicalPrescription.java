@@ -19,9 +19,7 @@ public class MedicalPrescription {
     public MedicalPrescription(HealthCardID cip, int membShipNumb, String illness)
             throws IncorrectParametersException {
 
-        if (cip == null || illness == null || illness.isBlank() || membShipNumb <= 0) {
-            throw new IncorrectParametersException("Incorrect medical prescription parameters");
-        }
+        if (cip == null || illness == null || illness.isBlank() || membShipNumb <= 0) throw new IncorrectParametersException("Incorrect medical prescription parameters");
 
         this.cip = cip;
         this.membShipNumb = membShipNumb;
@@ -33,13 +31,8 @@ public class MedicalPrescription {
             throws ProductAlreadyInPrescriptionException,
             IncorrectTakingGuidelinesException {
 
-        if (prodID == null || instruc == null || instruc.length < 5) {
-            throw new IncorrectTakingGuidelinesException("Invalid parameters for prescription line");
-        }
-
-        if (lines.containsKey(prodID)) {
-            throw new ProductAlreadyInPrescriptionException("Product " + prodID + " already in prescription");
-        }
+        if (prodID == null || instruc == null || instruc.length < 5) throw new IncorrectTakingGuidelinesException("Invalid parameters for prescription line");
+        else if (lines.containsKey(prodID)) throw new ProductAlreadyInPrescriptionException("Product " + prodID + " already in prescription");
 
         try {
             dayMoment dM = dayMoment.valueOf(instruc[0]);
@@ -61,9 +54,7 @@ public class MedicalPrescription {
             throws ProductNotInPrescriptionException {
 
         TakingGuideline tg = lines.get(prodID);
-        if (tg == null) {
-            throw new ProductNotInPrescriptionException("Product " + prodID + " not found in prescription");
-        }
+        if (tg == null) throw new ProductNotInPrescriptionException("Product " + prodID + " not found in prescription");
 
         tg.getPosology().setDose(newDose);
     }
@@ -71,9 +62,8 @@ public class MedicalPrescription {
     public void removeLine(ProductID prodID)
             throws ProductNotInPrescriptionException {
 
-        if (!lines.containsKey(prodID)) {
-            throw new ProductNotInPrescriptionException("Product " + prodID + " not found in prescription");
-        }
+        if (!lines.containsKey(prodID)) throw new ProductNotInPrescriptionException("Product " + prodID + " not found in prescription");
+
         lines.remove(prodID);
     }
 

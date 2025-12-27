@@ -7,9 +7,8 @@ public class Posology {
     private FqUnit freqUnit;
 
     public Posology(float d, float f, FqUnit u) {
-        if (d <= 0 || f <= 0 || u == null) {
-            throw new IllegalArgumentException("Incorrect posology parameters: dose and frequency must be positive, unit cannot be null");
-        }
+        if (d <= 0 || f <= 0 || u == null) throw new IllegalArgumentException("Incorrect posology parameters: dose and frequency must be positive, unit cannot be null");
+
         this.dose = d;
         this.freq = f;
         this.freqUnit = u;
@@ -20,9 +19,8 @@ public class Posology {
     }
 
     public void setDose(float d) {
-        if (d <= 0) {
-            throw new IllegalArgumentException("Dose must be greater than zero");
-        }
+        if (d <= 0) throw new IllegalArgumentException("Dose must be greater than zero");
+
         this.dose = d;
     }
 
@@ -31,9 +29,7 @@ public class Posology {
     }
 
     public void setFreq(float f) {
-        if (f <= 0) {
-            throw new IllegalArgumentException("Frequency must be greater than zero");
-        }
+        if (f <= 0) throw new IllegalArgumentException("Frequency must be greater than zero");
         this.freq = f;
     }
 
@@ -42,9 +38,7 @@ public class Posology {
     }
 
     public void setFreqUnit(FqUnit u) {
-        if (u == null) {
-            throw new IllegalArgumentException("Frequency unit cannot be null");
-        }
+        if (u == null) throw new IllegalArgumentException("Frequency unit cannot be null");
         this.freqUnit = u;
     }
 

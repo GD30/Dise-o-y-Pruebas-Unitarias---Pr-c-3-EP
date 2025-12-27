@@ -13,18 +13,13 @@ final public class ProductID {
     }
 
     ProductID(String code, boolean skipRegistry) throws ProductIDException {
-        if (code == null) {
-            throw new ProductIDException("Product code cannot be null");
-        }
-        if (!code.matches("^[0-9]{12}$")) {
-            throw new ProductIDException("Product code must be exactly 12 digits");
-        }
+        if (code == null) throw new ProductIDException("Product code cannot be null");
+        else if (!code.matches("^[0-9]{12}$")) throw new ProductIDException("Product code must be exactly 12 digits");
+
         this.code = code;
 
         if (!skipRegistry) {
-            if (!existingCodes.add(code)) {
-                throw new ProductIDException("Product code already exists");
-            }
+            if (!existingCodes.add(code)) throw new ProductIDException("Product code already exists");
         }
     }
 

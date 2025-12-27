@@ -16,18 +16,13 @@ final public class HealthCardID {
 
     // Constructor especial para tests: skipRegistry = true permite crear duplicados
     HealthCardID(String code, boolean skipRegistry) throws HealthCardIDException {
-        if (code == null) {
-            throw new HealthCardIDException("Health card ID cannot be null");
-        }
-        if (!code.matches("^[A-Za-z0-9]{16}$")) {
-            throw new HealthCardIDException("Health card ID must be exactly 16 alphanumeric characters");
-        }
+        if (code == null) throw new HealthCardIDException("Health card ID cannot be null");
+        else if (!code.matches("^[A-Za-z0-9]{16}$")) throw new HealthCardIDException("Health card ID must be exactly 16 alphanumeric characters");
+
         this.personalID = code;
 
         if (!skipRegistry) {
-            if (!existingIDs.add(code)) {
-                throw new HealthCardIDException("Health card ID already exists");
-            }
+            if (!existingIDs.add(code)) throw new HealthCardIDException("Health card ID already exists");
         }
     }
 

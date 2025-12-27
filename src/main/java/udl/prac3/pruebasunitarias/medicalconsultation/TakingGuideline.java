@@ -7,9 +7,7 @@ public class TakingGuideline {
     private String instructions;
 
     public TakingGuideline(dayMoment dM, float du, float d, float f, FqUnit fu, String i) {
-        if (dM == null || du <= 0) {
-            throw new IllegalArgumentException("Incorrect taking guideline parameters: day moment cannot be null and duration must be positive");
-        }
+        if (dM == null || du <= 0) throw new IllegalArgumentException("Incorrect taking guideline parameters: day moment cannot be null and duration must be positive");
 
         this.dMoment = dM;
         this.duration = du;
@@ -22,9 +20,7 @@ public class TakingGuideline {
     }
 
     public void setdMoment(dayMoment dM) {
-        if (dM == null) {
-            throw new IllegalArgumentException("Day moment cannot be null");
-        }
+        if (dM == null) throw new IllegalArgumentException("Day moment cannot be null");
         this.dMoment = dM;
     }
 
@@ -33,9 +29,8 @@ public class TakingGuideline {
     }
 
     public void setDuration(float du) {
-        if (du <= 0) {
-            throw new IllegalArgumentException("Duration must be greater than zero");
-        }
+        if (du <= 0) throw new IllegalArgumentException("Duration must be greater than zero");
+
         this.duration = du;
     }
 
@@ -44,9 +39,8 @@ public class TakingGuideline {
     }
 
     public void setPosology(Posology p) {
-        if (p == null) {
-            throw new IllegalArgumentException("Posology cannot be null");
-        }
+        if (p == null) throw new IllegalArgumentException("Posology cannot be null");
+
         this.posology = p;
     }
 
