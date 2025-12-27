@@ -1,5 +1,7 @@
 package udl.prac3.pruebasunitarias.medicalconsultation;
 
+import java.util.Objects;
+
 public class TakingGuideline {
     private dayMoment dMoment;
     private float duration;
@@ -66,5 +68,18 @@ public class TakingGuideline {
                 ", posology=" + posology +
                 ", instructions='" + instructions + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TakingGuideline that = (TakingGuideline) o;
+
+        return Float.compare(that.duration, duration) == 0 &&
+                Objects.equals(dMoment, that.dMoment) &&
+                Objects.equals(posology, that.posology) &&
+                Objects.equals(instructions, that.instructions);
     }
 }
