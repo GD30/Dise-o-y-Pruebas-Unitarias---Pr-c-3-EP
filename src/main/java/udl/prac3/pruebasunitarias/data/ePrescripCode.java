@@ -6,13 +6,8 @@ import java.util.concurrent.*;
 
 final public class ePrescripCode {
     private final String code;
-    private static final Set<String> existingCodes = ConcurrentHashMap.newKeySet();
 
-    public ePrescripCode(String code) throws ePrescripCodeException {
-        this(code, false);
-    }
-
-    ePrescripCode(String code, boolean skipRegistry) throws ePrescripCodeException {
+    ePrescripCode(String code) throws ePrescripCodeException {
         if (code == null) {
             throw new ePrescripCodeException("ePrescription code cannot be null");
         }
@@ -20,12 +15,6 @@ final public class ePrescripCode {
             throw new ePrescripCodeException("ePrescription code must be exactly 16 alphanumeric characters");
         }
         this.code = code;
-
-        if (!skipRegistry) {
-            if (!existingCodes.add(code)) {
-                throw new ePrescripCodeException("ePrescription code already exists");
-            }
-        }
     }
 
     public String getCode() {
