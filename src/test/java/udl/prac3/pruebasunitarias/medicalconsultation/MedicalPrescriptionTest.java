@@ -21,7 +21,8 @@ class MedicalPrescriptionTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        // Generate unique IDs for each test
+        HealthCardID.clearRegistry();
+        ProductID.clearRegistry();
         validCip = new HealthCardID(String.format("TEST%012d", testIdCounter++));
         validProduct1 = new ProductID(String.format("%012d", testProductCounter++));
         validProduct2 = new ProductID(String.format("%012d", testProductCounter++));
@@ -29,8 +30,6 @@ class MedicalPrescriptionTest {
 
         validPrescription = new MedicalPrescription(validCip, 12345, "Hypertension");
     }
-
-    // ========== Constructor validation tests ==========
 
     @Test
     @DisplayName("Constructor rejects null HealthCardID")
@@ -92,8 +91,6 @@ class MedicalPrescriptionTest {
         Assertions.assertTrue(validPrescription.getLines().isEmpty());
         Assertions.assertEquals(0, validPrescription.getLines().size());
     }
-
-    // ========== addLine validation tests ==========
 
     @Test
     @DisplayName("addLine rejects null ProductID")
@@ -221,8 +218,6 @@ class MedicalPrescriptionTest {
         Assertions.assertEquals(3, validPrescription.getLines().size());
     }
 
-    // ========== modifyDoseInLine tests ==========
-
     @Test
     @DisplayName("modifyDoseInLine rejects non-existent ProductID")
     void modifyDoseInLine_productNotFound_throwsException() {
@@ -279,8 +274,6 @@ class MedicalPrescriptionTest {
                 () -> validPrescription.modifyDoseInLine(validProduct1, -1));
     }
 
-    // ========== removeLine tests ==========
-
     @Test
     @DisplayName("removeLine rejects non-existent ProductID")
     void removeLine_productNotFound_throwsException() {
@@ -317,8 +310,6 @@ class MedicalPrescriptionTest {
         Assertions.assertFalse(validPrescription.getLines().containsKey(validProduct1));
         Assertions.assertTrue(validPrescription.getLines().containsKey(validProduct2));
     }
-
-    // ========== isComplete tests ==========
 
     @Test
     @DisplayName("isComplete returns false when prescription is incomplete (no dates, no signature, no lines)")
@@ -368,8 +359,6 @@ class MedicalPrescriptionTest {
         Assertions.assertTrue(validPrescription.isComplete());
     }
 
-    // ========== Setter validation tests ==========
-
     @Test
     @DisplayName("setPrescDate rejects null date")
     void setPrescDate_nullDate_throwsException() {
@@ -410,8 +399,6 @@ class MedicalPrescriptionTest {
                 () -> validPrescription.setPrescCode(code2));
     }
 
-    // ========== Getter tests ==========
-
     @Test
     @DisplayName("getLines returns unmodifiable map")
     void getLines_returnsUnmodifiableMap() throws Exception {
@@ -431,8 +418,6 @@ class MedicalPrescriptionTest {
         Assertions.assertEquals(12345, validPrescription.getMembShipNumb());
         Assertions.assertEquals("Hypertension", validPrescription.getIllness());
     }
-
-    // ========== Integration tests ==========
 
     @Test
     @DisplayName("Complete workflow: add lines, modify dose, remove line, complete prescription")

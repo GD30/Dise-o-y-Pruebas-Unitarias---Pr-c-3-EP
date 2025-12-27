@@ -43,8 +43,6 @@ public class ConsultationTerminal {
     private String aiAnswer;
     private List<Suggestion> suggestions;
 
-    // ========== Dependency Injection ==========
-
     public void setHealthNationalService(HealthNationalService hns) {
         this.hns = hns;
     }
@@ -52,8 +50,6 @@ public class ConsultationTerminal {
     public void setDecisionMakingAI(DecisionMakingAI ai) {
         this.decisionAI = ai;
     }
-
-    // ========== Main Use Case Flow ==========
 
     /**
      * Initiates a patient revision by downloading medical history and prescription
@@ -168,7 +164,6 @@ public class ConsultationTerminal {
         requireState(ConsultationState.PRESCRIPTION_FINISHED);
 
         try {
-            // In a real system, this would involve proper cryptographic signing
             byte[] signatureData = new byte[]{1, 2, 3, 4, 5};
             DigitalSignature signature = new DigitalSignature(signatureData);
             medicalPrescription.seteSign(signature);
@@ -208,8 +203,6 @@ public class ConsultationTerminal {
     public void printMedicalPrescrip() {
         throw new UnsupportedOperationException("Not implemented");
     }
-
-    // ========== AI-related methods ==========
 
     /**
      * Calls the Decision Making AI for support
@@ -258,7 +251,6 @@ public class ConsultationTerminal {
         suggestions = decisionAI.parseSuggest(aiAnswer);
     }
 
-    // ========== Getter methods for testing ==========
 
     public List<Suggestion> getSuggestions() {
         return suggestions;
@@ -279,8 +271,6 @@ public class ConsultationTerminal {
     public ConsultationState getState() {
         return state;
     }
-
-    // ========== Private validation methods ==========
 
     /**
      * Checks if revision has been initialized (any state except INIT)
