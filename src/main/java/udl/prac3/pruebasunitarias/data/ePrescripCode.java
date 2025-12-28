@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 final public class ePrescripCode {
     private final String code;
 
-    ePrescripCode(String code) throws ePrescripCodeException {
+    public ePrescripCode(String code) throws ePrescripCodeException {
         if (code == null) {
             throw new ePrescripCodeException("ePrescription code cannot be null");
         }
