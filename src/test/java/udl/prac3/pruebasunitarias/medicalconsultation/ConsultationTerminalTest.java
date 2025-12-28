@@ -478,4 +478,28 @@ class ConsultationTerminalTest {
         Assertions.assertEquals(1, terminal.getMedicalPrescription().getLines().size());
         Assertions.assertNotNull(terminal.getMedicalPrescription().geteSign());
     }
+
+    @Test
+    @DisplayName("extractGuidelinesFromSugg stores parsed suggestions when aiAnswer exists")
+    void extractGuidelines_success_storesSuggestions() throws Exception {
+        when(mockHNS.getMedicalHistory(any())).thenReturn(mockHistory);
+        when(mockHNS.getMedicalPrescription(any(), anyString())).thenReturn(mockPrescription);
+
+        terminal.initRevision(validCip, "Hypertension");
+
+        when(mockAI.parseSuggest("AI recommendation here")).thenReturn(List.of(
+                new Suggestion(new ProductID("123456789001")) // ELIMINATE por defecto según constructor
+        ));
+
+        // Forzamos aiAnswer con askAIForSuggest (así no tocamos campos privados)
+        when(mockAI.getSuggestions("prompt")).thenReturn("AI recommendation here");
+        terminal.askAIForSuggest("prompt");
+
+        terminal.extractGuidelinesFromSugg();
+
+        verify(mockAI).parseSuggest("AI recommendation here");
+        Assertions.assertNotNull(terminal.getSuggestions());
+        Assertions.assertEquals(1, terminal.getSuggestions().size());
+    }
+
 }
