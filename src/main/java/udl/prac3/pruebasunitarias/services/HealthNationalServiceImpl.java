@@ -27,7 +27,7 @@ public class HealthNationalServiceImpl implements HealthNationalService {
 
         if (history == null) {
             try {
-                history = new MedicalHistory(cip, 1); // constructor con 2 args
+                history = new MedicalHistory(cip, 1);
                 historyDB.put(cip, history);
             } catch (IncorrectParametersException e) {
                 throw new ProceduralException("Error creando MedicalHistory: " + e.getMessage());

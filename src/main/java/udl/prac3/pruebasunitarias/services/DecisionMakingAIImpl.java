@@ -28,9 +28,7 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
             throw new BadPromptException("Prompt inválido o vacío");
         }
 
-        /*
-         * Texto simulado devuelto por la IA
-         */
+         // Texto simulado devuelto por la IA
         return "INSERT; MODIFY; ELIMINATE";
     }
 
@@ -74,7 +72,6 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
             suggestions.add(new Suggestion(eliminateID));
 
         } catch (ProductIDException e) {
-            // En prácticas basta con ignorar o registrar
             System.err.println("Error creando ProductID en DecisionMakingAI: " + e.getMessage());
         }
 
