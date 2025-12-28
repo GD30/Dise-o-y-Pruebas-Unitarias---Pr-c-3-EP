@@ -7,15 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 final public class HealthCardID {
 
     private final String personalID;
-    private static final Set<String> existingIDs = ConcurrentHashMap.newKeySet();
 
     // Constructor normal: bloquea IDs duplicados
     public HealthCardID(String code) throws HealthCardIDException {
-        this(code, false);
-    }
-
-    // Constructor especial para tests: skipRegistry = true permite crear duplicados
-    HealthCardID(String code, boolean skipRegistry) throws HealthCardIDException {
         if (code == null) {
             throw new HealthCardIDException("Health card ID cannot be null");
         }
@@ -23,24 +17,10 @@ final public class HealthCardID {
             throw new HealthCardIDException("Health card ID must be exactly 16 alphanumeric characters");
         }
         this.personalID = code;
-
-        if (!skipRegistry) {
-            if (!existingIDs.add(code)) {
-                throw new HealthCardIDException("Health card ID already exists");
-            }
-        }
     }
 
     public String getPersonalID() {
         return personalID;
-    }
-
-    /**
-     * Clears the registry of existing IDs.
-     * Should only be used in tests.
-     */
-    public static void clearRegistry() {
-        existingIDs.clear();
     }
 
     @Override

@@ -6,13 +6,8 @@ import java.util.concurrent.*;
 
 final public class ProductID {
     private final String code;
-    private static final Set<String> existingCodes = ConcurrentHashMap.newKeySet();
 
     public ProductID(String code) throws ProductIDException {
-        this(code, false);
-    }
-
-    ProductID(String code, boolean skipRegistry) throws ProductIDException {
         if (code == null) {
             throw new ProductIDException("Product code cannot be null");
         }
@@ -20,24 +15,10 @@ final public class ProductID {
             throw new ProductIDException("Product code must be exactly 12 digits");
         }
         this.code = code;
-
-        if (!skipRegistry) {
-            if (!existingCodes.add(code)) {
-                throw new ProductIDException("Product code already exists");
-            }
-        }
     }
 
     public String getCode() {
         return code;
-    }
-
-    /**
-     * Clears the registry of existing Codes.
-     * Should only be used in tests.
-     */
-    public static void clearRegistry() {
-        existingCodes.clear();
     }
 
     @Override

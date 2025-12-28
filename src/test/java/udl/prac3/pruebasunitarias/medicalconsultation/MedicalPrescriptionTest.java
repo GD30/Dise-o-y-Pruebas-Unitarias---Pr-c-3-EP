@@ -21,8 +21,6 @@ class MedicalPrescriptionTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        HealthCardID.clearRegistry();
-        ProductID.clearRegistry();
         validCip = new HealthCardID(String.format("TEST%012d", testIdCounter++));
         validProduct1 = new ProductID(String.format("%012d", testProductCounter++));
         validProduct2 = new ProductID(String.format("%012d", testProductCounter++));

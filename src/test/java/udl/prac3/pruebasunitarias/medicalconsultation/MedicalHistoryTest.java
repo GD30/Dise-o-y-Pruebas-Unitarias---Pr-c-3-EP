@@ -13,7 +13,6 @@ class MedicalHistoryTest {
 
     @BeforeEach
     void setUp() throws HealthCardIDException, IncorrectParametersException {
-        HealthCardID.clearRegistry();
         validCip = new HealthCardID("ABCD1234EFGH5678");
         validHistory = new MedicalHistory(validCip, 12345);
     }
