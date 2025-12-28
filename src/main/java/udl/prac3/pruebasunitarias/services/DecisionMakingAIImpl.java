@@ -14,7 +14,7 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
     @Override
     public void initDecisionMakingAI() throws AIException {
         initialized = true;
-        System.out.println("DecisionMakingAI inicializada correctamente.");
+        System.out.println("✓ DecisionMakingAI inicializada correctamente.");
     }
 
     @Override
@@ -28,8 +28,8 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
             throw new BadPromptException("Prompt inválido o vacío");
         }
 
-         // Texto simulado devuelto por la IA
-        return "INSERT; MODIFY; ELIMINATE";
+        // Simular respuesta de IA
+        return "Sugerencias: Ajustar dosis, añadir suplemento, eliminar medicamento obsoleto";
     }
 
     @Override
@@ -42,25 +42,32 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
         }
 
         try {
-            // INSERT
-            ProductID insertID = new ProductID("000000000001");
+            // INSERT - Formato correcto según el enunciado
+            ProductID insertID = new ProductID("123456789001");
             String[] insertGuidelines = {
-                    "Tomar 1 comprimido al día",
-                    "Preferiblemente por la mañana"
+                    "BEFORELUNCH",      // dayMoment
+                    "30",               // duration (días)
+                    "2",                // dose
+                    "1",                // frequency
+                    "DAY",              // FqUnit
+                    "Take with water"   // instructions
             };
-
             suggestions.add(new Suggestion(
                     Suggestion.SuggestionType.INSERT,
                     insertID,
                     insertGuidelines
             ));
 
-            // MODIFY
-            ProductID modifyID = new ProductID("000000000002");
+            // MODIFY - Solo los campos que cambian
+            ProductID modifyID = new ProductID("123456789002");
             String[] modifyGuidelines = {
-                    "Tomar 1 comprimido cada 8 horas"
+                    "",     // dayMoment (sin cambios)
+                    "",     // duration (sin cambios)
+                    "3",    // dose (cambio a 3)
+                    "",     // frequency (sin cambios)
+                    "",     // FqUnit (sin cambios)
+                    ""      // instructions (sin cambios)
             };
-
             suggestions.add(new Suggestion(
                     Suggestion.SuggestionType.MODIFY,
                     modifyID,
@@ -68,11 +75,13 @@ public class DecisionMakingAIImpl implements DecisionMakingAI {
             ));
 
             // ELIMINATE
-            ProductID eliminateID = new ProductID("000000000003");
+            ProductID eliminateID = new ProductID("123456789003");
             suggestions.add(new Suggestion(eliminateID));
 
+            System.out.println("✓ " + suggestions.size() + " sugerencias parseadas.");
+
         } catch (ProductIDException e) {
-            System.err.println("Error creando ProductID en DecisionMakingAI: " + e.getMessage());
+            System.err.println("Error creando ProductID: " + e.getMessage());
         }
 
         return suggestions;
