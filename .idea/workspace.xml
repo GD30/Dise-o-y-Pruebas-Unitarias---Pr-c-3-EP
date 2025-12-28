@@ -4,76 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32a2fc89-a959-4f80-8057-70845f4af11b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/udl/prac3/pruebasunitarias/services/DecisionMakingAIImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/udl/prac3/pruebasunitarias/services/HealthNationalServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebasunitarias.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/udl/prac3/pruebasunitarias/cli/action/StartPrescriptionAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/udl/prac3/pruebasunitarias/cli/action/StartPrescriptionAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/udl/prac3/pruebasunitarias/medicalconsultation/ConsultationTerminalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/udl/prac3/pruebasunitarias/medicalconsultation/ConsultationTerminalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/AddAssessmentAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/AddMedicineAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/DemoAction$CheckedRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/DemoAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/FinishPrescriptionAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/InitRevisionAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/ModifyDoseAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/SendAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/SetEndingDateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/StampSignatureAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/action/StartPrescriptionAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/cli/utils/ConsoleColors.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/DigitalSignature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/HealthCardID.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/ProductID.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/ePrescripCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/exceptions/DigitalSignatureException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/exceptions/HealthCardIDException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/exceptions/ProductIDException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/data/exceptions/ePrescripCodeException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/ConsultationTerminal$ConsultationState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/ConsultationTerminal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/FqUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/MedicalHistory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/MedicalPrescription.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/Posology.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/TakingGuideline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/dayMoment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/IncorrectEndingDateException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/IncorrectParametersException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/IncorrectTakingGuidelinesException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/ProceduralException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/ProductAlreadyInPrescriptionException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/ProductNotInPrescriptionException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/medicalconsultation/exceptions/eSignatureException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/DecisionMakingAI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/DecisionMakingAIImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/HealthNationalService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/HealthNationalServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/Suggestion$SuggestionType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/Suggestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/exceptions/AIException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/exceptions/AnyCurrentPrescriptionException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/exceptions/BadPromptException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/udl/prac3/pruebasunitarias/services/exceptions/NotCompletedMedicalPrescription.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/data/DigitalSignatureTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/data/HealthCardIDTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/data/ProductIDTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/data/ePrescripCodeTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/medicalconsultation/ConsultationTerminalTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/medicalconsultation/MedicalHistoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/medicalconsultation/MedicalPrescriptionTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/medicalconsultation/PosologyTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/udl/prac3/pruebasunitarias/medicalconsultation/TakingGuidelineTest.class" beforeDir="false" />
-    </list>
+    <list default="true" id="32a2fc89-a959-4f80-8057-70845f4af11b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +59,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Class__Implementation__Branch",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/MrPudin/Desktop/Dise-o-y-Pruebas-Unitarias---Pr-c-3-EP",
