@@ -5,17 +5,18 @@ import udl.prac3.pruebasunitarias.medicalconsultation.MedicalHistory;
 import udl.prac3.pruebasunitarias.medicalconsultation.MedicalPrescription;
 import udl.prac3.pruebasunitarias.data.exceptions.HealthCardIDException;
 import udl.prac3.pruebasunitarias.services.exceptions.*;
+import udl.prac3.pruebasunitarias.medicalconsultation.exceptions.ProceduralException;
 
 import java.net.ConnectException;
 
 public interface HealthNationalService {
 
     MedicalHistory getMedicalHistory(HealthCardID cip)
-            throws ConnectException, HealthCardIDException;
+            throws ConnectException, HealthCardIDException, ProceduralException;
 
     MedicalPrescription getMedicalPrescription(HealthCardID cip, String illness)
             throws ConnectException, HealthCardIDException,
-            AnyCurrentPrescriptionException;
+            AnyCurrentPrescriptionException, ProceduralException;
 
     MedicalPrescription sendHistoryAndPrescription(HealthCardID cip,
                                                    MedicalHistory hce,
@@ -23,7 +24,9 @@ public interface HealthNationalService {
                                                    MedicalPrescription mPresc)
             throws ConnectException, HealthCardIDException,
             AnyCurrentPrescriptionException,
-            NotCompletedMedicalPrescription;
+            NotCompletedMedicalPrescription,
+            ProceduralException;
+
 
     MedicalPrescription generateTreatmCodeAndRegister(MedicalPrescription ePresc)
             throws ConnectException;
